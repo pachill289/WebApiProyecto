@@ -2,14 +2,10 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <AssemblyName>CapaEntidad</AssemblyName>
+    <RootNamespace>CapaEntidad</RootNamespace>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>MiFirma.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\CapaEntity\CapaDatos.csproj" />
-    <ProjectReference Include="..\CapaTools\CapaTools.csproj" />
-    <ProjectReference Include="..\Data\CapaEntidad.csproj" />
-  </ItemGroup>
 
 </Project>
