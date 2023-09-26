@@ -57,6 +57,19 @@ namespace CapaDatos.UserManager {
                 return false; // Indicar que no se encontró el usuario a actualizar
             }
         }
+        public Usuarios SearchUser(string id)
+        {
+            var usuarioExistente = _context.Usuarios.FirstOrDefault(us => us.Ci == id);
+
+            if (usuarioExistente != null)
+            {
+                return usuarioExistente;
+            }
+            else
+            {
+                return null; // Indicar que no se encontró el usuario a actualizar
+            }
+        }
         //DELETE
         public bool DeleteUserById(string id)
         {

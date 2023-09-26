@@ -48,6 +48,29 @@ namespace WebApi_proyecto.Controllers
                 return BadRequest();
             }
         }
+        [HttpGet]
+        [Route("BuscarUsuario/{id}")]
+        public IActionResult BuscarUsuario(string id)
+        {
+            Response res = new Response();
+            try
+            {
+                Usuarios usuario = _context.SearchUser(id);
+                res.ErrorCode = 0;
+                if (usuario == null)
+                {
+                    res.ErrorCode = -1;
+                }
+                return Ok(usuario);
+            }
+            catch (Exception e)
+            {
+
+                res.ErrorCode = -1;
+                res.Description = e.Message;
+                return BadRequest();
+            }
+        }
 
         // GET api/<UsuarioController>/5
         /*[HttpGet("{id}")]
