@@ -39,5 +39,23 @@ namespace CapaDatos.UserManager {
             _context.Usuarios.Add(nuevoUsuario);
             _context.SaveChanges();
         }
+        // PUT
+        public bool UpdateUser(string id, Usuario usModel) {
+            Encriptacion nuevaEncriptacion = new Encriptacion();
+            var usuarioExistente = _context.Usuarios.FirstOrDefault(us => us.Ci == id);
+
+            if (usuarioExistente != null) {
+                usuarioExistente.Ci = usModel.Ci;
+                usuarioExistente.Clave = Encoding.Default.GetString(nuevaEncriptacion.Encriptar(usModel.Clave));
+                usuarioExistente.Nombre = usModel.Nombre;
+                usuarioExistente.fechaNacimiento = usModel.fechaNacimiento;
+
+                _context.SaveChanges();
+                return true; // Indicar que la actualización fue exitosa
+            }
+            else {
+                return false; // Indicar que no se encontró el usuario a actualizar
+            }
+        }
     }
 }

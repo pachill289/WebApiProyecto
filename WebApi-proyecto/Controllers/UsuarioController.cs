@@ -75,11 +75,11 @@ namespace WebApi_proyecto.Controllers
                 return BadRequest();
             }
         }
-
         // PUT api/<UsuarioController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut("api/[controller]/ActualizarUsuario/{id}")]
+        public void Put(int id, [FromBody] Usuario usModel)
         {
+
         }
 
         // DELETE api/<UsuarioController>/5
