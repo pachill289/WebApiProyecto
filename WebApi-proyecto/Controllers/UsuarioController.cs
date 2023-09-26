@@ -26,7 +26,7 @@ namespace WebApi_proyecto.Controllers
 
         // GET: api/<UsuarioController>
         [HttpGet]
-        [Route("api/[controller]/ObtenerUsuarios")]
+        [Route("ObtenerUsuarios")]
         public IActionResult Get()
         {
            Response res = new Response();
@@ -58,7 +58,7 @@ namespace WebApi_proyecto.Controllers
 
         // POST api/<UsuarioController>
         [HttpPost]
-        [Route("api/[controller]/RegistrarUsuario")]
+        [Route("RegistrarUsuario")]
         public IActionResult Post([FromBody] Usuario usModel)
         {
             Response res = new Response();
@@ -76,7 +76,7 @@ namespace WebApi_proyecto.Controllers
             }
         }
         // PUT api/<UsuarioController>/5
-        [HttpPut("api/[controller]/ActualizarUsuario/{id}")]
+        [HttpPut("ActualizarUsuario/{id}")]
         public void Put(int id, [FromBody] Usuario usModel)
         {
 
