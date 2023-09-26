@@ -37,17 +37,6 @@ namespace CapaLogica
             }));
             return response;
         }
-        //POST
-        public void InsertUser (Usuario usModel)
-        {
-            Encriptacion nuevaEcriptacion = new();
-            Usuarios nuevoUsuario = new Usuarios();
-            nuevoUsuario.Ci = usModel.Ci;
-            nuevoUsuario.Clave = Encoding.Default.GetString(nuevaEcriptacion.Encriptar(usModel.Clave));
-            nuevoUsuario.Nombre = usModel.Nombre;
-            nuevoUsuario.fechaNacimiento = usModel.fechaNacimiento;
-            _context.Usuarios.Add(nuevoUsuario);
-            _context.SaveChanges();
-        }
+        
     }
 }
