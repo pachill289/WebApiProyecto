@@ -20,23 +20,6 @@ namespace CapaLogica
         {
             _context = context;
         }
-        //GET
-        public List<Usuario> GetUsers()
-        {
-            //Se crea una lista de modelos de tipo usuario
-            List<Usuario> response = new List<Usuario>();
-            //Se recupera a partir del dbContext todos los usuarios con la ayuda de EntityFramework 5.0
-            var dataList = _context.Usuarios.ToList();
-            //Luego se llena la lista de usuarios
-            dataList.ForEach(row => response.Add(new Usuario()
-            {
-                Ci = row.Ci,
-                Nombre = row.Nombre,
-                Clave = row.Clave,
-                fechaNacimiento = row.fechaNacimiento
-            }));
-            return response;
-        }
         
     }
 }
