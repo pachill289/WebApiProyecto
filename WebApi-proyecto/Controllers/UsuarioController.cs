@@ -92,9 +92,22 @@ namespace WebApi_proyecto.Controllers
         }
 
         // DELETE api/<UsuarioController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpDelete("EliminarUsuario/{id}")]
+        public IActionResult Delete(string id)
         {
+            Response res = new Response();
+            try
+            {
+                _context.DeleteUserById(id);
+                res.ErrorCode = 0;
+                return Ok(res.ErrorCode);
+            }
+            catch (Exception e)
+            {
+                res.ErrorCode = -1;
+                res.Description = e.Message;
+                return BadRequest();
+            }
         }
     }
 }

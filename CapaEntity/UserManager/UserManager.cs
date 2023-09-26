@@ -57,5 +57,22 @@ namespace CapaDatos.UserManager {
                 return false; // Indicar que no se encontró el usuario a actualizar
             }
         }
+        //DELETE
+        public bool DeleteUserById(string id)
+        {
+            Encriptacion nuevaEncriptacion = new Encriptacion();
+            var usuarioExistente = _context.Usuarios.FirstOrDefault(us => us.Ci == id);
+
+            if (usuarioExistente != null)
+            {
+                _context.Usuarios.Remove(usuarioExistente);
+                _context.SaveChanges();
+                return true; // Indicar que la actualización fue exitosa
+            }
+            else
+            {
+                return false; // Indicar que no se encontró el usuario a actualizar
+            }
+        }
     }
 }
