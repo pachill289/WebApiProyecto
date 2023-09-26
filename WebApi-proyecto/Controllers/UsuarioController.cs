@@ -77,9 +77,18 @@ namespace WebApi_proyecto.Controllers
         }
         // PUT api/<UsuarioController>/5
         [HttpPut("ActualizarUsuario/{id}")]
-        public void Put(int id, [FromBody] Usuario usModel)
+        public IActionResult Put(string id, [FromBody] Usuario usModel)
         {
-
+            Response res = new Response();
+            try {
+                _context.UpdateUser(id, usModel);
+                res.ErrorCode = 0;
+                return Ok(res.ErrorCode);
+            } catch (Exception e) {
+                res.ErrorCode = -1;
+                res.Description = e.Message;
+                return BadRequest();
+            }
         }
 
         // DELETE api/<UsuarioController>/5
